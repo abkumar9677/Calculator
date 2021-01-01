@@ -1,9 +1,9 @@
 import React from 'react';
 
-const OutScreencalcResult = ()=>{
+const OutScreencalcResult = (props)=>{
     return(
         <div className="screen-res">
-            <input type="text" readOnly/>
+            <input type="text" readOnly value={props.value}/>
         </div>
     )
 }

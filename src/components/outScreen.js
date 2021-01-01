@@ -1,11 +1,11 @@
 import React from 'react';
 import OutScreencalcResult from './outScreencalcResult';
 
-const OutScreen = ()=>{
+const OutScreen = (props)=>{
     return(
-        <div className="out-Screen">
-            <OutScreencalcResult/>
-            <OutScreencalcResult/>            
+        <div className="screen">
+            <OutScreencalcResult value={props.question}/>
+            <OutScreencalcResult value={props.answer}/>            
         </div>
     )
 }

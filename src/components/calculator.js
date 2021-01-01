@@ -22,6 +22,45 @@ class calculator extends React.Component{
     this.handleClick = this.handleClick.bind(this); 
     }
 
+
+    render(){
+        return(
+            <div className="frame">
+                <CalcTitle value="CALCULATOR" />
+                <div className="mainCalc">
+                    <OutScreen answer={this.state.answer} question = {this.state.question} />
+                    <div className="button-row"> 
+                        <Button label={'Clear'} handleClick={this.handleClick}/> 
+                        <Button label={'Delete'} handleClick={this.handleClick}/> 
+                        <Button label={'.'} handleClick={this.handleClick}/> 
+                        <Button label={'/'} handleClick={this.handleClick}/> 
+                    </div> 
+                    <div className="button-row"> 
+                        <Button label={'7'} handleClick={this.handleClick}/> 
+                        <Button label={'8'} handleClick={this.handleClick}/> 
+                        <Button label={'9'} handleClick={this.handleClick}/> 
+                        <Button label={'*'} handleClick={this.handleClick}/> 
+                    </div> 
+                    <div className="button-row"> 
+                        <Button label={'4'} handleClick={this.handleClick}/> 
+                        <Button label={'5'} handleClick={this.handleClick}/> 
+                        <Button label={'6'} handleClick={this.handleClick}/> 
+                        <Button label={'-'} handleClick={this.handleClick}/> 
+                    </div> 
+                    <div className="button-row"> 
+                        <Button label={'1'} handleClick={this.handleClick}/> 
+                        <Button label={'2'} handleClick={this.handleClick}/> 
+                        <Button label={'3'} handleClick={this.handleClick}/> 
+                        <Button label={'+'} handleClick={this.handleClick}/> 
+                    </div> 
+                    <div className="button-row"> 
+                        <Button label={'0'} handleClick={this.handleClick}/> 
+                        <Button label={'='} handleClick={this.handleClick}/> 
+                    </div>
+                </div>
+            </div>
+        );
+    }
     // our method to handle all click events from our buttons 
     handleClick(event){ 
     
@@ -39,7 +78,8 @@ class calculator extends React.Component{
             var ans=''; 
                 try
                 { 
-                    ans = this.eval(this.state.question); 
+                    // eslint-disable-next-line no-eval
+                    ans = eval(this.state.question); 
                 } 
                 catch(err) 
                 { 
@@ -61,6 +101,7 @@ class calculator extends React.Component{
     
         // if it's the Clears sign, just clean our  
         // question and answer in the state 
+        
         this.setState({ question: '', answer: '' }); 
         break; 
         } 
@@ -69,56 +110,19 @@ class calculator extends React.Component{
         var str = this.state.question; 
             str = str.substr(0,str.length-1); 
             this.setState({question: str}); 
+            
             break; 
+        
         } 
     
-    default: { 
+        default: { 
     
         // for every other command, update the answer in the state 
-        this.setState({ question: this.setState.question += value}) 
+        this.setState({ question: this.setState.question += value});
+        
         break; 
         } 
     } 
-    } 
-
-
-    render(){
-        return(
-            <div className="frame">
-                <CalcTitle value="CALCULATOR" />
-                <div className="mainCalc">
-                    <OutScreen />
-                    <div className="button-row"> 
-                        <Button label={'Clear'}/> 
-                        <Button label={'Delete'}/> 
-                        <Button label={'.'}/> 
-                        <Button label={'/'}/> 
-                    </div> 
-                    <div className="button-row"> 
-                        <Button label={'7'}/> 
-                        <Button label={'8'}/> 
-                        <Button label={'9'}/> 
-                        <Button label={'*'}/> 
-                    </div> 
-                    <div className="button-row"> 
-                        <Button label={'4'}/> 
-                        <Button label={'5'}/> 
-                        <Button label={'6'}/> 
-                        <Button label={'-'}/> 
-                    </div> 
-                    <div className="button-row"> 
-                        <Button label={'1'}/> 
-                        <Button label={'2'}/> 
-                        <Button label={'3'}/> 
-                        <Button label={'+'}/> 
-                    </div> 
-                    <div className="button-row"> 
-                        <Button label={'0'}/> 
-                        <Button label={'='}/> 
-                    </div>
-                </div>
-            </div>
-        );
     }
 }
 
