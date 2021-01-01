@@ -32,7 +32,7 @@ code {
 	margin-bottom: 20px;
 	border-radius: 2px;
 	border: 2px solid black;
-	color: #4CAF50;
+	color: #050505;
 }
 
 
@@ -45,7 +45,7 @@ code {
 
 input[type='button']{
 	width: 100px;
-	background: #4CAF50;
+	background: #afa75a;
 	border: 1px solid #222;
 	padding: 10px 20px;
   color: black;
