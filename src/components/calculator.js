@@ -85,13 +85,13 @@ class calculator extends React.Component{
                 { 
                     this.setState({answer: "Math Error"}); 
                 } 
-                if (ans===undefined) {
+                if (ans===undefined) 
                     this.setState({answer: "Math Error"}); 
-                }
+                
                 // update answer in our state. 
-                else{
+                else
                     this.setState({ answer: ans , question: ''});
-                } 
+                 
                  
             } 
             break;
@@ -118,7 +118,8 @@ class calculator extends React.Component{
         default: { 
     
         // for every other command, update the answer in the state 
-        this.setState({ question: this.setState.question += value});
+        // eslint-disable-next-line react/no-direct-mutation-state
+        this.setState({ question: this.state.question += value});
         
         break; 
         } 
